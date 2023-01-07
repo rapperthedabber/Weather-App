@@ -4,8 +4,8 @@ var btn = document.querySelector(".btn")
 var form = document.querySelector("#searchCountry")
 var searchBar = document.querySelector("#searchBar")
 var p = document.querySelector("p")
-var temperature = document.querySelector("#humidity")
-var humidity = document.querySelector("#humidity")
+var temperature = document.querySelector(".Temperature")
+var humidity = document.querySelector(".humidity")
 //var formSubmitHandler = function (event) {
     // event.preventDefault();
     // var city = searchBar
@@ -26,8 +26,9 @@ function findCity(event) {
      var displayHumidity = data['main']['humidity']
 
      p.innerHTML = displayCity;
-     temperature.innerHTML = displayTemperature;
-    humidity.innerHTML = displayHumidity
+     temperature.innerHTML =  "Temperature: " + displayTemperature;
+     
+    humidity.innerHTML =  "Humidity: " + displayHumidity
     })}
 
 function test(event) {
