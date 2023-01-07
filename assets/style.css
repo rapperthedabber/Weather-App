@@ -1,0 +1,54 @@
+body {
+    background-color: chartreuse;
+    text-align: center;
+}
+nav{
+    background-color: rgb(76, 0, 255);
+    border: solid 5px;
+    margin: 50px;
+    border-radius: 10px;
+    height: 200px;
+    width: 500px;
+}
+#intro{
+font-family: monospace;
+color: antiquewhite;
+font-size: 50px;
+margin-left: 30px;
+}
+
+div{
+    border: solid;
+    width: 200px;
+    height: 100px;
+    background-color: aliceblue;
+    margin: 10px;
+    float: left;
+}
+p{
+    color: black;
+    font-weight: 900;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+li{
+    list-style: none;
+    color: black;
+}
+input{
+    height: 50px;
+    width: 200px;
+    margin-bottom: 20px;
+}
+button{
+    background-color: lightseagreen;
+    height: 50px;
+}
+
+div:hover{
+    border: solid red;
+    width: 200px;
+    height: 100px;
+    background-color: aliceblue;
+    margin: 10px;
+    float: left;
+}
