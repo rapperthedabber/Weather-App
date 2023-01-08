@@ -19,7 +19,7 @@ function fetch5day(lat, lon) {
     var API = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=08553de1a0124c7f4f47f18b48ab8cf6"
     fetch(API).then(response => response.json()).then(data => {
         console.log(data)
-        for(i = 0; i < data.list.length; i += 8) {
+        for(i = 3; i < data.list.length; i += 8) {
             var div = document.createElement("div");
             document.getElementById("forecast").append(div)
             var tempP = document.createElement("p")
@@ -30,7 +30,11 @@ function fetch5day(lat, lon) {
             Wind.textContent = "wind speed: " + data.list[i].wind.speed + "MPH"
             var Date = document.createElement("p");
             Date.textContent = dayjs.unix(data.list[i].dt).format("M/D/YYYY");
-            div.append(Date, tempP, humidity, Wind)
+            var iconUrl = `https://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`;
+            var icon = document.createElement("img");
+            icon.setAttribute("src", iconUrl)
+            div.append(Date, icon, tempP, humidity, Wind)
+
         }
     })
 
@@ -51,10 +55,19 @@ function findCity(event) {
             temperature.innerHTML = "Temperature: " + displayTemperature;
             var Date = document.createElement("p")
             document.querySelector("#currentDate").textContent = dayjs.unix(data.dt).format("M/D/YYYY");
+            var iconUrl = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+            var icon = document.createElement("img");
+            icon.setAttribute("src", iconUrl)
+            document.getElementById("forecast").append(icon);
 
 
             humidity.innerHTML = "Humidity: " + displayHumidity
             fetch5day(data.coord.lat, data.coord.lon);
+            // var iconUrl = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+            // var icon = document.createElement("img");
+            // icon.setAttribute("src", iconUrl)
+            // document.getElementById("icon").append(icon);
+            
 
         })
 }
